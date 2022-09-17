@@ -1,0 +1,36 @@
+﻿@using BundlerDeneme3.ModelView;
+@model IndexVM ;
+<link rel="stylesheet" href="~/css/css.min.css" />
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<h1>Yeni kodlar</h1>
+
+<nav role="navigation">
+    <ul>
+        @foreach (var cat in Model.Categories)
+        {
+            <li>
+                <a href="#">
+                    <p>@cat.CatgoryName</p>
+                </a>
+                <ul class="dropdown">
+                    @foreach (var child in cat.Childeren)
+                    {
+                        <li>
+                            <a href="#">@child.Name</a>
+                            <ul>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</nav>
